@@ -4,6 +4,7 @@
   "description": "Criando aplicação de teste com node e TDD",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,5 +20,9 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-node6": "^11.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
   }
 }
