@@ -7,7 +7,8 @@
     "start": "babel-node ./server.js",
     "test:integration": "NODE_ENV=test mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
     "test:unit": "NODE_ENV=test mocha --opts test/unit/mocha.opts test/unit/**/*_spec.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "linter": "eslint src/**/*.js test/**/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,10 @@
     "babel-cli": "^6.26.0",
     "babel-preset-node6": "^11.0.0",
     "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-mocha": "^5.1.0",
     "mocha": "^5.2.0",
     "sinon": "^6.1.4",
     "supertest": "^3.1.0"

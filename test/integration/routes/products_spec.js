@@ -1,29 +1,45 @@
+import Product from '../../../src/models/product';
+
 describe('Routes: Products', () => {
-	const defaultProduct = {
-		name: 'Default product',
-		description: 'product description',
-		price: 100
-	};
+  let request;
 
-	describe('GET /products', () => {
-		it('Should return a list of products', done => {
+  before(() => {
+    return setupApp()
+      .then((app) => {
+        request = supertest(app);
+      });
+  });
 
-			request
-			.get('/products')
-			.end((err, res) => {
-				expect(res.body[0]).to.eql(defaultProduct);
-				done(err);
-			});
+  const defaultProduct = {
+    name: 'Default product',
+    description: 'product description',
+    price: 100,
+  };
+  const expectedProduct = {
+    __v: 0,
+    _id: '56cb91bdc3464f14678934ca',
+    name: 'Default product',
+    description: 'product description',
+    price: 100,
+  };
+
+  beforeEach(() => {
+    const product = new Product(defaultProduct);
+    product._id = '56cb91bdc3464f14678934ca';
+    return Product.remove({})
+      .then(() => product.save());
+  });
+
+  afterEach(() => Product.remove({}));
+
+  describe('GET /products', () => {
+    it('should return a list of products', (done) => {
+      request
+        .get('/products')
+        .end((err, res) => {
+          expect(res.body).to.eql([expectedProduct]);
+          done(err);
+        });
     });
-
-    it('Should return a list of products again', done => {
-
-			request
-			.get('/products')
-			.end((err, res) => {
-				expect(res.body[0]).to.eql(defaultProduct);
-				done(err);
-			});
-		});
-	});
+  });
 });
