@@ -1,0 +1,19 @@
+{
+  "name": "node-tdd",
+  "version": "1.0.0",
+  "description": "Criando aplicação de teste com node e TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardorcamargo/node-tdd.git"
+  },
+  "author": "Leonardo Romano Camargo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonardorcamargo/node-tdd/issues"
+  },
+  "homepage": "https://github.com/leonardorcamargo/node-tdd#readme"
+}
