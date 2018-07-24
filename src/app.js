@@ -8,4 +8,3 @@ app.use(bodyParser.json());
 app.use('/', routes);
 
 export default app;
-	

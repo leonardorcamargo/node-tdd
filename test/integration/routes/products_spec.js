@@ -14,6 +14,16 @@ describe('Routes: Products', () => {
 				expect(res.body[0]).to.eql(defaultProduct);
 				done(err);
 			});
+    });
+
+    it('Should return a list of products again', done => {
+
+			request
+			.get('/products')
+			.end((err, res) => {
+				expect(res.body[0]).to.eql(defaultProduct);
+				done(err);
+			});
 		});
 	});
 });
