@@ -14,7 +14,7 @@ RUN yarn cache clean && yarn install --silent
 
 USER root
 COPY . $HOME/api
-RUN chown -R app:app $HOME/*
+# RUN chown -R app:app $HOME/api
 USER app
 
 CMD ["npm", "start"]
