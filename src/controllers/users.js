@@ -24,18 +24,17 @@ class UsersController {
   }
 
   update(req, res) {
-    /* eslint-disable prefer-destructuring */
-    const body = req.body;
+    const { body } = req;
     return this.User.findById(req.params.id)
       .then((user) => {
-        /* eslint-disable no-param-reassign */
-        user.name = body.name;
-        user.email = body.email;
-        user.role = body.role;
+        const newUser = new this.User(user);
+        newUser.name = body.name;
+        newUser.email = body.email;
+        newUser.role = body.role;
         if (body.password) {
-          user.password = body.password;
+          newUser.password = body.password;
         }
-        return user.save();
+        return newUser.save();
       })
       .then(() => res.sendStatus(200))
       .catch(err => res.status(422).send(err.message));
