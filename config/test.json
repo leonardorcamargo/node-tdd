@@ -1,0 +1,5 @@
+{
+  "database": {
+    "mongoUrl": "mongodb://mongodb:27017/test"
+  }
+}

@@ -1,3 +1,4 @@
---require babel-core/register test/integration/helpers.js
+--require babel-core/register test/integration/helpers.js test/integration/global.js
 --reporter spec
+--timeout 5000
 --exit

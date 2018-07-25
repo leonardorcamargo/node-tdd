@@ -80,7 +80,8 @@ describe('Controllers: Products', () => {
         status: sinon.stub(),
       };
       class fakeProduct {
-        save() {};
+        /* eslint-disable class-methods-use-this */
+        save() {}
       }
       response.status.withArgs(201).returns(response);
       sinon.stub(fakeProduct.prototype, 'save').withArgs().resolves();
@@ -98,6 +99,7 @@ describe('Controllers: Products', () => {
           status: sinon.stub(),
         };
         class fakeProduct {
+          /* eslint-disable class-methods-use-this */
           save() {}
         }
         response.status.withArgs(422).returns(response);
