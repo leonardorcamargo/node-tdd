@@ -9,6 +9,14 @@ class ProductsController {
       .then(products => res.send(products))
       .catch(err => res.status(400).send(err.message));
   }
+
+  getById(req, res) {
+    const { params: { id } } = req;
+
+    return this.Product.find({ _id: id })
+      .then(products => res.send(products))
+      .catch(err => res.status(400).send(err.message));
+  }
 }
 
 export default ProductsController;

@@ -5,7 +5,7 @@ services:
     environment:
       NODE_ENV: development
     tty: true
-    command: npm run test:unit
+    command: npm run test
     ports:
       - 3000:3000
     depends_on:
